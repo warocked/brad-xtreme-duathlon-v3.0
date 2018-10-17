@@ -2216,7 +2216,12 @@ html.no-csstransitions .home-content__main {
 .s-about {
     padding-top: 16.2rem;
     padding-bottom: 9rem;
-    background-color: #e6282f;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6282f+52,7b4ec4+88,1c95a0+100 */
+background: #e6282f; /* Old browsers */
+background: -moz-linear-gradient(45deg, #e6282f 52%, #7b4ec4 88%, #1c95a0 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', endColorstr='#1c95a0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     color: #010507;
     position: relative;
 }
