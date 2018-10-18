@@ -19,6 +19,17 @@
     var doc = document.documentElement;
     doc.setAttribute('data-useragent', navigator.userAgent);
 
+    var clockx;
+
+    var currentDate = new Date();
+    var futureDate  = new Date('2018-12-09 05:30:00');
+    var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+    clockx = $('.clock').FlipClock(diff, {
+        clockFace: 'DailyCounter',
+        countdown: true
+    });
+
 
    /* Preloader
     * -------------------------------------------------- */
@@ -155,7 +166,7 @@
    /* Stat Counter
     * ------------------------------------------------------ */
     var clStatCount = function() {
-        
+        /*
         var statSection = $(".about-stats"),
             stats = $(".stats__count span");
 
@@ -187,6 +198,7 @@
             offset: "90%"
 
         });
+        */
     };
 
 

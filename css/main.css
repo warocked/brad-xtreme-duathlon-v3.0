@@ -1,60 +1,3 @@
-/* =================================================================== 
- *
- *  Glint v1.0 Main Stylesheet
- *  11-20-2017
- *  ------------------------------------------------------------------
- *
- *  TOC:
- *  # base style overrides
- *      ## links
- *  # typography & general theme styles
- *      ## Lists
- *      ## responsive video container
- *      ## floated image
- *      ## tables
- *      ## Spacing
- *      ## pace.js styles - minimal
- *  # preloader
- *  # forms
- *      ## style placeholder text
- *      ## change autocomplete styles in chrome
- *  # buttons
- *  # additional components
- *      ## alert box
- *      ## additional typo styles
- *      ## skillbars 
- *  # reusable and common theme styles
- *      ## display headings
- *      ## section header
- *      ## slick slider
- *  # header styles
- *      ## header logo
- *      ## main navigation 
- *      ## mobile menu toggle 
- *  # home 
- *      ## home content
- *      ## home social 
- *      ## home animations
- *  # about
- *      ## about stats
- *  # services
- *      ## services list
- *  # works
- *      ## bricks/masonry
- *  # clients
- *      ## slider
- *      ## testimonials
- *  # contact
- *      ## loader animation
- *  # footer
- *      ## footer main
- *      ## footer bottom
- *      ## go to top
- *
- *
- * =================================================================== */
-
-
 /* ===================================================================
  * # base style overrides
  *
@@ -789,7 +732,7 @@ input[type="reset"],
 input[type="button"] {
     display: inline-block;
     font-family: "montserrat-medium", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: .3rem;
     height: 5.4rem;
@@ -1384,7 +1327,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 @media only screen and (max-width: 600px) {
     .section-header.has-bottom-sep {
-        padding-bottom: 0;
+        padding-bottom: 2rem;
     }
     .section-header.has-bottom-sep::before {
         width: 250px;
@@ -2123,7 +2066,7 @@ html.no-csstransitions .home-content__main {
     }
     .home-content__buttons .btn {
         display: block;
-        width: 70%;
+        width: 100%;
         margin: 1.5rem 0 0 0;
     }
     .home-social {
@@ -2316,6 +2259,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
     max-width: 1024px;
 }
 
+.border-last {
+    border: none 0 !important;
+}
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
@@ -2337,9 +2284,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
         margin: 1.5rem 0;
     }
     .stats__col:nth-child(n) {
-        border: none;
-    }
-    .stats__col:nth-child(2n+1) {
         border-right: 1px solid rgba(255, 255, 255, 0.25);
     }
 }
@@ -2350,7 +2294,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
         max-width: 600px;
     }
     .stats__count {
-        font-size: 8rem;
+        font-size: 5rem;
     }
     .stats h5 {
         margin-top: 1.2rem;
@@ -2394,6 +2338,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
         display: none;
     }
     .stats__col:nth-child(n) {
+        border: none;
+    }
+    .stats__cat {
+        margin: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        position: relative;
+    }
+    .stats__inc {
+        margin: 0;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        position: relative;
+    }
+    .stats__inc::after {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.25);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -125px;
+    }
+    .stats__inc:last-child::after {
+        display: none;
+    }
+    .stats__inc:nth-child(n) {
         border: none;
     }
     .about__line {

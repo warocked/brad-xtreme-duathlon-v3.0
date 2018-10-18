@@ -21,7 +21,10 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/flipclock.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- script
     ================================================== -->
@@ -111,6 +114,12 @@
             </div>
         </div>
 
+        <div class="row section-header">
+            <div class="block-1-1">
+                <div class="clock"></div>
+            </div>
+        </div>
+
         <div class="row about-desc">
             <div class="block-1-2 block-m-1-2 block-mob-full">
                 <div class="col-block">
@@ -149,7 +158,7 @@
                 <div class="stats__count"><span>20</span> km</div>
                 <h5>BIKE</h5>
             </div>
-            <div class="col-block stats__col">
+            <div class="col-block stats__col border-last">
                 <div class="stats__count"><span>3</span> km</div>
                 <h5>RUN</h5> 
             </div>
@@ -192,7 +201,7 @@
                 <div data-aos="zoom-in-down" data-aos-delay="600"><img src="images/icon-helmet.png" alt="bike helmet" /></div>
                 <h5 class="display-3--light">HELMET</h5>
             </div>
-            <div class="col-block stats__col">
+            <div class="col-block stats__col border-last">
                 <div data-aos="zoom-in-down" data-aos-delay="900"><img src="images/icon-water-bottle.png" alt="water bottle" /></div>
                 <h5 class="display-3--light">WATER BOTTLE</h5> 
             </div>
@@ -245,19 +254,19 @@
             <div class="col-full">&nbsp;</div>
 
             <div class="block-1-4 block-m-1-2 block-mob-full">
-                <div class="col-block">
+                <div class="col-block stats__inc">
                   <div data-aos="zoom-in-down" data-aos-delay="300"><img src="images/icon-shirt.png" alt="finisher shirt" /></div>
                   <div class="subhead subhead--dark">Finishers Shirt<br /><span class="subhead--red">(Dri Fit)</span></div>
                 </div>
-                <div class="col-block">
+                <div class="col-block stats__inc">
                   <div data-aos="zoom-in-down" data-aos-delay="600"><img src="images/icon-bib.png" alt="race bib" /></div>
                   <div class="subhead subhead--dark">Race Bib</div>
                 </div>
-                <div class="col-block">
+                <div class="col-block stats__inc">
                   <div data-aos="zoom-in-down" data-aos-delay="900"><img src="images/icon-meal.png" alt="post race" /></div>
                   <div class="subhead subhead--dark">Post Race<br />Meal</div>
                 </div>
-                <div class="col-block">
+                <div class="col-block stats__inc">
                   <div data-aos="zoom-in-down" data-aos-delay="1200"><img src="images/icon-medal.png" alt="finisher medal" /></div>
                   <div class="subhead subhead--dark">Finishers<br />Medal</div>
                 </div>
@@ -394,8 +403,10 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/flipclock.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
