@@ -827,8 +827,8 @@ input[type="button"].btn--primary:focus {
 }
 
 .btn--stroke:hover, button.btn--stroke:hover {
-    border: 0.2rem solid #292929;
-    color: #292929;
+    border: 0.2rem solid #ca1b21;
+    color: #ca1b21;
 }
 
 .btn--pill, button.btn--pill {
@@ -847,7 +847,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * # additional components
  *
  * ------------------------------------------------------------------- */
-
+#bank-qr {
+    width: 80%;
+    max-width: 200px;
+}
 
 /* ------------------------------------------------------------------- 
  * ## alert box
@@ -1433,6 +1436,26 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 
+/* -------------------------------------------------------------------
+ * ## header medal
+ * ------------------------------------------------------------------- */
+.header-medal {
+    display: inline-block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 40px;
+    top: -2px;
+    z-index: 501;
+    width: 299px;
+    height: 388px;
+    zoom: 1;
+}
+
+.header-medal img {
+    opacity: .75;
+}
+
 /* ------------------------------------------------------------------- 
  * ## main navigation 
  * ------------------------------------------------------------------- */
@@ -1682,6 +1705,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * responsive:
  * header
  * ------------------------------------------------------------------- */
+@media only screen and (max-width: 900px) {
+    .header-medal {
+        zoom: .75;
+    }
+}
 @media only screen and (max-width: 600px) {
     .s-header {
         height: 90px;
@@ -1692,11 +1720,17 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     .header-menu-toggle {
         right: 25px;
     }
+    .header-medal {
+        zoom: .5;
+    }
 }
 
 @media only screen and (max-width: 400px) {
     .header-menu-text {
         display: none;
+    }
+    .header-medal {
+        zoom: .4;
     }
 }
 
@@ -1801,8 +1835,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .home-content__scroll {
     position: absolute;
-    right: 9.5rem;
-    bottom: 8.4rem;
+    left: 51%;
+    bottom: 7.4rem;
 }
 
 .home-content__scroll a {
@@ -1843,9 +1877,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #e6282f;
+    background-color: #fff;
     position: absolute;
-    right: 7.2rem;
+    left: 50%;
     bottom: 0;
 }
 
@@ -2159,12 +2193,12 @@ html.no-csstransitions .home-content__main {
 .s-about {
     padding-top: 16.2rem;
     padding-bottom: 9rem;
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6282f+52,7b4ec4+88,1c95a0+100 */
-background: #e6282f; /* Old browsers */
-background: -moz-linear-gradient(45deg, #e6282f 52%, #7b4ec4 88%, #1c95a0 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', endColorstr='#1c95a0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6282f+52,7b4ec4+88,1c95a0+100 */
+    background: #e6282f; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #e6282f 52%, #7b4ec4 88%, #1c95a0 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #e6282f 52%,#7b4ec4 88%,#1c95a0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', endColorstr='#1c95a0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     color: #010507;
     position: relative;
 }
@@ -2231,9 +2265,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #FFFFFF;
+    background-color: #FFF;
     position: absolute;
-    right: 7.2rem;
+    left: 50%;
+    top: 0;
+}
+
+.event__line {
+    display: block;
+    width: 2px;
+    height: 10.2rem;
+    background-color: #e6282f;
+    position: absolute;
+    left: 50%;
     top: 0;
 }
 
@@ -2241,8 +2285,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
  * ## event
  * ------------------------------------------------------------------- */
 .s-event {
-    padding-top: 6rem;
-    padding-bottom: 9rem;
+    padding-top: 12rem;
+    padding-bottom: 13.2rem;
     background-color: #292929 !important;
     color: #010507;
     position: relative;
@@ -2261,6 +2305,54 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
 
 .border-last {
     border: none 0 !important;
+}
+
+
+
+/* ===================================================================
+ * # Feebies
+ *
+ * ------------------------------------------------------------------- */
+.s-freebies {
+    padding-top: 16.2rem;
+    padding-bottom: 9rem;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6282f+52,7b4ec4+88,1c95a0+100 */
+    background: url('../images/home-bg.jpg') center;
+    background-size: cover; 
+    color: #010507;
+    position: relative;
+}
+
+.s-freebies .section-header.has-bottom-sep::before {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.s-freebies .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    background-color: #151515;
+    z-index: 1;
+}
+
+.s-freebies .thumb img {
+    margin: 1.2em auto 3em;
+    border: 5px solid #e6282f;
+    -webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.5);
+    background-color: #fff;
+}
+
+.freebies-desc {
+    font-size: 1.5rem;
+    line-height: 1.75;
+    text-align: center;
+    max-width: 1024px;
+    z-index: 2;
+    position: relative;
 }
 
 
@@ -3019,6 +3111,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6282f', end
     left: 50%;
     top: -10.2rem;
     margin-left: -1px;
+    z-index: 99;
 }
 
 .contact-content {
