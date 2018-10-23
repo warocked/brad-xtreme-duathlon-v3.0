@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Race App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+
+
+<body>
+
+<div class="main">
+	CheckPoint: <span id="pp">AS5</span><br /> 
+	Start Time: <span id="p0"></span><br /> 
+	Current: <span id="p1"></span><br /> 
+	Duration: <span id="p2"></span><br />
+
+	<form id="bib-submit" class="form-inline">
+
+	  <div class="form-row align-items-center">
+			  <div class="col-auto">
+		      <label class="sr-only" for="inlineFormInputGroupUsername">bib</label>
+		      <div class="input-group">
+		        <div class="input-group-prepend">
+		          <div class="input-group-text">Bib No.</div>
+		        </div>
+		        <input type="number" class="form-control" id="bib" placeholder="000">
+		      </div>
+		    </div>
+	    </div>
+	</form>
+
+	 Submit: <div id="p4"></div>
+<table id="tblReportResultsDemographics" class="display" width="100%"></table>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.2.2/moment-duration-format.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+
+		// console.log( JSON.parse( localStorage.getItem("bradEventDB") ) );
+
+	    $("#bib").focus(function() {
+	    	$(this).click();
+	    });
+
+	    $('#bib-submit').submit(function (e) {
+            e.preventDefault();
+            var as = $('#pp').text();
+            var f = JSON.parse(localStorage.getItem("bradEventDB"));
+            // console.log(f[as].racedata);
+            // 
+           	if(typeof f[as] == 'undefined') {
+            	f[as] = {'racedata' : {}};
+           	}
+
+            var rd = f[as].racedata;
+            var bibs = ( Object.keys(rd).length > 0 ) ? rd : {};
+
+            // console.log(bibs);
+            // console.log('-----');
+
+            var bib = parseInt( $('#bib').val() );
+            var duration = $('#p2').text();
+            bibs[bib] = duration;
+
+            // console.log(bibs);
+
+			var h = f;
+			h[as] = {'racedata' : bibs};
+            localStorage.setItem("bradEventDB", JSON.stringify(h));
+            // console.log( JSON.parse( localStorage.getItem("bradEventDB") ) );
+
+            $('#bib').val('');
+            // $('#p4').html($('#p4').html() + '<br />' + bib + ' - ' + duration);
+
+			initAidStationData();
+	    });
+
+		function initDB() {
+			var as = $('#pp').text();
+
+			if (localStorage.getItem("bradEventDB") === null) {
+				var h = {};
+				h[as] = {'racedata' : {}};
+				localStorage.setItem('bradEventDB', JSON.stringify(h));
+			}
+		}
+		initDB();
+
+		function startTime() {
+			  return moment(new Date('2018/10/23 5:30:00'));
+		}
+
+		function currentTime() {
+		  return moment();
+		}
+
+		function aidStationData(aDemoItems) {
+	 	    // var aDemoItems  = oResults.lDemographicItems; //
+		    var jsonString = JSON.stringify(aDemoItems  ) //for testing
+		     
+		   //Load  datatable
+		    var oTblReport = $("#tblReportResultsDemographics")
+		 
+		 	if ($.fn.dataTable.isDataTable("#tblReportResultsDemographics")) {
+		 		oTblReport.dataTable().fnDestroy();
+		 	}
+		 	
+		    oTblReport.dataTable ({
+		        "data" : aDemoItems,
+		        "columns" : [
+		            { "data" : "bib", "title":"Race Bib", },
+		            { "data" : "time", "title":"Race Time", "searchable": false }
+		            // { "data" : "dob", "orderable": false }
+		        ],
+		        "order": [[ 1, 'desc' ]],
+		        "bPaginate": true,
+    			"bLengthChange": false,
+		    });
+		}
+
+		function initAidStationData() {
+	        var as = $('#pp').text();
+	        var f = JSON.parse(localStorage.getItem("bradEventDB"));
+
+	       	if(typeof f[as] == 'undefined') {
+	        	f[as] = {'racedata' : {}};
+	       	}
+
+	       	var data = new Array();
+	       	if (Object.keys(f[as].racedata).length > 0) {
+	       		$.each(f[as].racedata, function( index, value ) {
+				  	data.push({
+				  		'bib' : index,
+				  		'time' : '<span class="tbl-time">'+value+'</span><br /><span class="tbl-as">'+as+'</span>'
+				  	});
+				});
+	       	}
+
+			aidStationData(data);
+		}
+
+		initAidStationData();
+
+		// PRINT ON SCREEN
+		document.getElementById("p0").innerHTML = startTime().format('MM/DD/YYYY hh:mm:ss');
+		document.getElementById("p1").innerHTML = currentTime().format('MM/DD/YYYY hh:mm:ss');
+
+		setInterval(function() {
+		  var duration = currentTime().diff(startTime(), 'seconds'); //moment.utc(  );
+
+		  document.getElementById("p1").innerHTML = currentTime().format('MM/DD/YYYY hh:mm:ss');
+		  document.getElementById("p2").innerHTML = moment.duration(duration, "seconds").format('HH:mm:ss', {
+		    trim: false
+		  });
+		}, 1000);
+	});
+
+</script>
+</body>
+</html>
