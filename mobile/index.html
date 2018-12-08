@@ -18,7 +18,7 @@
 			<div class="col">
 				<ul class="nav justify-content-end mt-1 mb-1">
 					<li class="nav-item">
-						<a class="nav-link text-danger" href="#">Settings</a>
+						<a class="nav-link text-danger" href="#" data-toggle="modal" data-target="#settingsModal">Settings</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link btn btn-danger btn-sm" href="#">Sync</a>
@@ -26,6 +26,50 @@
 				</ul>
 			</div>
 		</div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="settingsModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="settingsModalLabel">Race Settings</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						
+					<!--
+						<form id="bib-submit" class="form">
+							<div class="form-row align-items-center">
+								<div class="col">
+									<label class="sr-only" for="inlineFormInputGroupUsername">bib</label>
+									<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">Bib No.</div>
+									</div>
+									<input type="number" class="form-control form-control-lg" id="bib" placeholder="000">
+									</div>
+								</div>
+							</div>
+							<div class="form-row align-items-center">
+								<div class="col">
+									<button type="submit" class="btn btn-danger btn-block mt-1">ADD RACE RECORD</button>
+								</div>
+							</div>
+						</form>
+					-->
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col">
 				
